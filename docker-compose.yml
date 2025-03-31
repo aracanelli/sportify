@@ -4,10 +4,10 @@ services:
   backend:
     build: ./backend
     volumes:
-      - ./backend/app:/app/app
-    working_dir: /app/app
+      - ./backend:/app                  # 👈 Mount entire backend folder
+    working_dir: /app                  # 👈 Default path inside container
     environment:
-      - PYTHONPATH=/app/app
+      - PYTHONPATH=/app                # 👈 Set root for import paths
     ports:
       - "8000:8000"
     env_file:
